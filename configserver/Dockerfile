@@ -9,7 +9,7 @@ LABEL maintainer="Illary Huaylupo <illaryhs@gmail.com>"
 
 # Add the application's jar to the container
 RUN pwd
-COPY target/licensing-service-0.0.2-SNAPSHOT.jar app.jar
+COPY target/configserver-0.0.1-SNAPSHOT.jar app.jar
 
 #unpackage jar file
 RUN mkdir -p target/dependency
@@ -31,4 +31,4 @@ COPY --from=build ${DEPENDENCY}/BOOT-INF/classes /app
 
 
 #execute the application
-ENTRYPOINT ["java","-cp","app:app/lib/*","com.bk.optimagrowth.license.LicensingServiceApplication"]
+ENTRYPOINT ["java","-cp","app:app/lib/*","com.bk.optimagrowth.configserver.ConfigurationServerApplication"]
